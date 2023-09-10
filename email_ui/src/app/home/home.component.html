@@ -1,0 +1,116 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css"
+    href="http://cdn.datatables.net/plug-ins/3cfcc339e89/integration/bootstrap/3/dataTables.bootstrap.css">
+<main style="margin-top: 100px; margin-left: 100px; margin-right: 100px;">
+    <div class="container pt-4">
+        <h2>Hello {{user}}</h2>
+    </div>
+
+    <div>
+        <button type="button" class="btn1" (click)="newMail()">
+            <span>Mail</span>
+        </button>
+
+        <span></span>
+        <button type="button" class="btn1" (click)="logout()">
+            <span>Logout</span>
+        </button>
+    </div>
+
+
+    <br />
+
+    <br />
+
+    <div id="newemail" [hidden]="hideCompose">
+
+        <form [formGroup]="emailform">
+            <table>
+                <tr>
+                    <td>
+                        <label> <b>From:</b> </label>
+                    </td>
+                    <td>
+                        <Label>{{fromEmail}}</Label>
+                    </td>
+                </tr>
+                <tr></tr>
+                <tr>
+                    <td><b>To:</b></td>
+                    <td>
+                        <input type="text" id="toemail" placeholder="" autocomplete="off" formControlName="toemail"
+                            required>
+                    </td>
+                </tr>
+                <tr></tr>
+                <tr>
+                    <td><b>Subject:</b></td>
+                    <td>
+                        <input class="input" type="text" id="subject" placeholder="" autocomplete="off"
+                            formControlName="subject" required>
+                    </td>
+                </tr>
+                <tr></tr>
+                <tr>
+                    <td><b>Message: </b></td>
+                    <td> <textarea formControlName="message"></textarea></td>
+                </tr>
+                <tr>
+                    <td>
+                        <input style="display: none" type="file" multiple (change)="onFileChanged($event)" #fileInput />
+                        <input type="button" class="upload-button" value="Upload attachment(s)"
+                            (click)="fileInput.click()" />
+                    </td>
+                    <td>
+                        <input type="button" class="upload-button" value="send" (click)="sendEmail()"
+                            [disabled]="!emailform.valid" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+
+
+    </div>
+    <br />
+
+    <br />
+
+    <br />
+    <h3>Sent mails</h3>
+    <br />
+
+    <div>
+        <table id="emaillist" class="table table-bordered" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
+            <thead class="" *ngIf="emailItems?.length>0">
+                <tr>
+                    <th>Send To</th>
+                    <th>Subject</th>
+                    <th>Message</th>
+                    <th>Upload Time</th>
+                    <th>Attachment</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let email of emailItems">
+                    <td>{{email.toEmail}}</td>
+                    <td>{{email.subject}}</td>
+                    <td>{{email.message}}</td>
+                    <td>{{email.uploadDate}}</td>
+
+                    <td>
+
+
+                        <p [hidden]="validFileData(email.fileData)">
+
+                            <button (click)="download(email.fileData)" class="btn btn-primary btn-xs"
+                                data-title="downlaod" data-toggle="modal" data-target="#download"><span
+                                    class="glyphicon"></span>{{email.fileData.filename}}</button>
+                        </p>
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</main>

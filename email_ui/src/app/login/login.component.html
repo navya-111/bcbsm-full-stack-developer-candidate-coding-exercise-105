@@ -1,0 +1,21 @@
+<div class="align-center">
+    <h2>User Login</h2>
+    <form [formGroup]="loginForm">
+
+        <table>
+            <tr>
+                <input type="email" id="email" placeholder="Email" autocomplete="off" formControlName="email" required>
+            </tr>
+            <tr>
+                <input type="password" id="password" placeholder="Password" autocomplete="off"
+                    formControlName="password" required>
+            </tr>
+            <tr>
+                <div class="btn-div">
+                <button class="login-btn" color="primary" type="submit" (click)="onSubmit()" [disabled]="!loginForm.valid">Login</button>
+                <button class="login-btn" type="button" routerLink="/register">Sign up</button>
+            </div>
+            </tr>
+        </table>
+    </form>
+</div>

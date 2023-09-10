@@ -1,0 +1,23 @@
+<div class="align-center">
+    <h2>Register User</h2>
+    <form [formGroup]="registerForm">
+
+        <table>
+            <tr>
+                <input type="text" id="nane" placeholder="Name" autocomplete="off" formControlName="name" required>
+            </tr>
+            <tr>
+                <input type="email" id="email" placeholder="Email" autocomplete="off" formControlName="email" required>
+            </tr>
+            <tr>
+                <input type="password" id="password" placeholder="Password" autocomplete="off"
+                    formControlName="password" required>
+            </tr>
+            <tr>
+                <div class="btn-div">
+                <button class="login-btn" color="primary" type="submit" (click)="onSubmit()" [disabled]="!registerForm.valid">Register</button>
+            </div>
+            </tr>
+        </table>
+    </form>
+</div>
