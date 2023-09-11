@@ -19,3 +19,32 @@
     Springboot  
     Angular  
     MongoDB
+
+
+Login screen
+<img width="567" alt="image" src="https://github.com/navya-111/bcbsm-full-stack-developer-candidate-coding-exercise-105/assets/143535260/4ecb8342-da80-4b2b-91c4-5378b93eff53">
+
+user registration
+<img width="495" alt="image" src="https://github.com/navya-111/bcbsm-full-stack-developer-candidate-coding-exercise-105/assets/143535260/63b5cd38-58f9-4e0d-829c-5f9bfb3086be">
+
+home screen
+<img width="541" alt="image" src="https://github.com/navya-111/bcbsm-full-stack-developer-candidate-coding-exercise-105/assets/143535260/d55e5197-7a45-4081-acfb-9f98452101d9">
+
+email screen
+<img width="673" alt="image" src="https://github.com/navya-111/bcbsm-full-stack-developer-candidate-coding-exercise-105/assets/143535260/32bf9a61-ca13-4311-8573-ff6259555b6e">
+
+email success
+<img width="795" alt="image" src="https://github.com/navya-111/bcbsm-full-stack-developer-candidate-coding-exercise-105/assets/143535260/f1a5b647-260a-41f8-85e8-4db96b6f6a42">
+
+sent items list
+<img width="875" alt="image" src="https://github.com/navya-111/bcbsm-full-stack-developer-candidate-coding-exercise-105/assets/143535260/8fc924a9-139d-4de5-ac2d-232c8dc9b176">
+
+db details
+<img width="823" alt="image" src="https://github.com/navya-111/bcbsm-full-stack-developer-candidate-coding-exercise-105/assets/143535260/cfbcdfcd-cb5e-4904-8611-51951de2be4b">
+
+
+
+
+
+
+
