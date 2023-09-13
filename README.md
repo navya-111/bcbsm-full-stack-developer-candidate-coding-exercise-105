@@ -20,6 +20,9 @@
     Angular  
     MongoDB
 
+User Registration should be done with gmail account and password should be  
+#### Apppassword 
+and it should be generated on gmail account settings
 
 Login screen
 <img width="567" alt="image" src="https://github.com/navya-111/bcbsm-full-stack-developer-candidate-coding-exercise-105/assets/143535260/4ecb8342-da80-4b2b-91c4-5378b93eff53">
