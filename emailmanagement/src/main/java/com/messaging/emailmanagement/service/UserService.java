@@ -1,5 +1,6 @@
 package com.messaging.emailmanagement.service;
 
+import com.messaging.emailmanagement.config.EncryptionUtil;
 import com.messaging.emailmanagement.data.entity.User;
 import com.messaging.emailmanagement.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,19 +8,13 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.UUID;
 
 @Service
 public class UserService implements UserDetailsService {
-
-    @Autowired
-    private PasswordEncoder bcryptEncoder;
 
     @Autowired
     private UserRepository userRepository;
@@ -28,8 +23,8 @@ public class UserService implements UserDetailsService {
         return userRepository.findAll();
     }
 
-    public void addUser(User user) {
-        user.setPassword(bcryptEncoder.encode(user.getPassword()));
+    public void addUser(User user) throws Exception {
+        user.setPassword(EncryptionUtil.encrypt(user.getPassword()));
         userRepository.save(user);
     }
 

@@ -6,7 +6,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.messaging.emailmanagement.data.entity.EmailData;
 import com.messaging.emailmanagement.data.entity.FileData;
 import com.messaging.emailmanagement.service.EmailDataService;
-import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.http.ResponseEntity;

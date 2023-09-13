@@ -15,7 +15,7 @@ public class UserController {
 
     @PostMapping("/register")
     @CrossOrigin(origins = "http://localhost:4200")
-    public void addUser(@Validated @RequestBody User user) {
+    public void addUser(@Validated @RequestBody User user) throws Exception {
         userService.addUser(user);
     }
 }

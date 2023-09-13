@@ -1,5 +1,6 @@
 package com.messaging.emailmanagement.controller;
 
+import com.messaging.emailmanagement.config.EncryptionUtil;
 import com.messaging.emailmanagement.config.UserSessionRegistry;
 import com.messaging.emailmanagement.data.entity.User;
 import com.messaging.emailmanagement.data.model.AuthToken;
@@ -24,8 +25,8 @@ public class AuthenticationController {
     private UserService userService;
 
     @PostMapping("/login")
-    public ResponseEntity<AuthToken> login(@RequestBody LoginRequest loginRequest) {
-        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getEmail(), loginRequest.getPassword()));
+    public ResponseEntity<AuthToken> login(@RequestBody LoginRequest loginRequest) throws Exception {
+        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getEmail(), EncryptionUtil.encrypt(loginRequest.getPassword())));
         String sessionId = sessionRegistry.createSession(loginRequest);
         User user = userService.findById(loginRequest.getEmail());
         AuthToken authToken = new AuthToken(sessionId, loginRequest.getEmail(), user.getName());
